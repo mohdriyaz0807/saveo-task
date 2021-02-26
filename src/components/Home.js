@@ -1,5 +1,4 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles';
 import { Input,InputLabel } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import {Button,Grid} from '@material-ui/core'
@@ -7,23 +6,19 @@ import Search from './Search'
 import MapView from './Map'
 import './Home.css'
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-      '& > *': {
-        margin: theme.spacing(1),
-        width: '25ch',
-      },
-    },
-  }));
 
 const Home = () => {
-    const classes = useStyles();
     
     const [place,setplace] = React.useState({location:'',lat:'',long:''})
     const [array,setarray] = React.useState([])
+    const [count,setcount] = React.useState(false)
     const handlesubmit=()=>{
+        if(place.location!==''){
         setarray(array=>[...array,place])
+        setplace({location:'',lat:'',long:''})}
         console.log(array)
+        if(array.length > 4) {
+        setcount(true) }
     }
 
     return (
@@ -43,7 +38,7 @@ const Home = () => {
         <Input type='number' id="standard-basic3" value={place.long} onChange={e=>setplace({...place,long:e.target.value})}/>
             </Grid>
             <Grid item sm={3} md={3} lg={3}>
-        <Button variant="contained" color='primary' onClick={handlesubmit}>Add</Button>                
+        <Button variant="contained" color='primary' disabled={count} onClick={handlesubmit}>Add</Button>                
         </Grid>
         </Grid>
         <Grid className='container2' container  justify="center"  alignItems="center">
