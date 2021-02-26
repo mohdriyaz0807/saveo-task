@@ -28,9 +28,9 @@ const Home = () => {
 
     return (
         <div className='home'>
-        <Button variant="contained" style={{position: 'static'}}>Home</Button>
+        <Button variant="contained" >Home</Button>
         <Grid  container direction="row"  justify="center"  alignItems="center" spacing={3}>
-        <Grid className='container' item lg={12} md={12}>
+        <Grid className='container' item md={12} sm={12} lg={12} md={12}>
         <form className={classes.root} noValidate autoComplete="off">
         <TextField id="standard-basic" value={location} onChange={e=>setlocation(e.target.value)}/>
         <Input type='number' id="standard-basic" value={latitude} onChange={e=>setlatitude(e.target.value)}/>
@@ -38,10 +38,10 @@ const Home = () => {
         <Button variant="contained" color='primary' onClick={handlesubmit}>Add</Button>
         </form>
         </Grid>
-        <Grid item lg={6} md={6}>
+        <Grid item md={6} sm={6} xs={6} lg={6} md={6}>
         <Search/>
         </Grid>
-        <Grid item lg={6} md={6}>
+        <Grid item md={6} sm={6} xs={6} lg={6} md={6}>
         <MapView/>
         </Grid>
         </Grid>
