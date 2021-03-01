@@ -43,6 +43,9 @@
     border-radius: 4px;
     color: #A0A3A5;
 }
+.homeBtn:active{
+    background-color: #2326c0;
+}
 
 .btnRoute{
     top: 794px;
@@ -54,6 +57,11 @@
     opacity: 1;
     color: #FFFFFF;
 }
+.btnRoute:active{
+    background-color:#FFFFFF ;
+    color: #074770;
+}
+
 table thead th:first-child{
     width: 67%;
 }
@@ -72,6 +80,11 @@ table thead th{
     text-align: center;
     margin-left: 250px;
 }
+.btnSubmit:active {
+    background-color: #279ce6;
+    color: #FFFFFF;
+}
+
 form {
     display: flex;
     flex-direction: row;
