@@ -7,10 +7,10 @@ import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-direct
 import '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css'
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 
-mapboxgl.accessToken = process.env.REACT_APP_API_KEY
-
+mapboxgl.accessToken = 'pk.eyJ1IjoibW9oZHJpeWF6MDgwNyIsImEiOiJja2xyY3FsMXgxbGwxMnZuMW1kaHRnMm9wIn0.x_OHBIdblBJy6B3MaeH5wA'
 
 function App() {
+  console.log(mapboxgl.accessToken)
 
   const [lng, setLng] = useState(80.66);
   const [lat, setLat] = useState(15.5);
