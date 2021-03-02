@@ -10,7 +10,6 @@ import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 mapboxgl.accessToken = 'pk.eyJ1IjoibW9oZHJpeWF6MDgwNyIsImEiOiJja2xyY3FsMXgxbGwxMnZuMW1kaHRnMm9wIn0.x_OHBIdblBJy6B3MaeH5wA'
 
 function App() {
-  console.log(mapboxgl.accessToken)
 
   const [lng, setLng] = useState(80.66);
   const [lat, setLat] = useState(15.5);
@@ -68,7 +67,6 @@ function App() {
             new mapboxgl.Marker() 
             .setLngLat([ev.result.geometry.coordinates[0], ev.result.geometry.coordinates[1]]) 
             .addTo(map); 
-            console.log(ev)
             setplace({...place,location:ev.result.text})
             setarray(array=>[...array,{location:ev.result.text,lat:ev.result.geometry.coordinates[1],long:ev.result.geometry.coordinates[0]}])
           });
@@ -78,7 +76,6 @@ function App() {
   },[])
 
   const route=()=>{
-    console.log(direction)
     array.map((e,i)=>{
       if(i==0){
         direction.setOrigin([e.long, e.lat]); 
@@ -94,7 +91,7 @@ function App() {
         const [btn,setbtn] =React.useState('Submit')
 
         const handlesubmit=()=>{
-        if(array!==''){
+        if(array.location!==''){
         setarray(array=>[...array,place])
         setplace({location:'',lat:'',long:''})
         setbtn('Submit')}
