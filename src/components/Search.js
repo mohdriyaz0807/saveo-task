@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Search = ({array}) => {
+const Search = ({array,route}) => {
 
 var rows=[]
 for(let i=1;i<=5;i++){
-  rows.push(<tr>
-    <td>{i} ---</td>
+  rows.push(<tr key={i}>
+    <td>{i} ---------</td>
     <td>----</td>
     <td>----</td>
   </tr>)
@@ -37,7 +37,7 @@ return (
             </table>
 <br/><br/><br/><br/>
             <div>
-            <button className='btnRoute' >Show Route</button>
+            <button className='btnRoute' onClick={route}>Show Route</button>
             </div>
         </div>
     )

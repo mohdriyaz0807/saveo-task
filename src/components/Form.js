@@ -1,6 +1,19 @@
 import React from 'react';
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+import mapboxgl from 'mapbox-gl';
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
+
+mapboxgl.accessToken = 'pk.eyJ1IjoibW9oZHJpeWF6MDgwNyIsImEiOiJja2xyY3FsMXgxbGwxMnZuMW1kaHRnMm9wIn0.x_OHBIdblBJy6B3MaeH5wA';
 
 const Form = ({array,setarray}) => {
+
+
+    var geocoder = new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken, 
+        type: 'country,region,place,postcode,locality,neighborhood',
+        });
+        
+
         const [place,setplace] = React.useState({location:'',lat:'',long:''})
         const [btn,setbtn] =React.useState('Submit')
 
@@ -9,13 +22,15 @@ const Form = ({array,setarray}) => {
         setarray(array=>[...array,place])
         setplace({location:'',lat:'',long:''})
         setbtn('Submit')
+                }
+
         }
-    }
 
     return (
         <>
         <form >
             <div className='place'>
+                <p id='geocoder'></p>
             <label for='basic1'>Place</label>
                 <input type='text' id="basic1" placeholder='location' value={place.location} onChange={e=>{setplace({...place,location:e.target.value});setbtn('Add')}}/>
                 </div>
